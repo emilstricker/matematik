@@ -1,0 +1,42 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "Stores user preferences and basic info.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Firebase Auth UID" },
+        "displayName": { "type": "string", "description": "User's display name" },
+        "email": { "type": "string", "description": "User's email" },
+        "photoURL": { "type": "string", "description": "User's photo URL" },
+        "points": { "type": "number", "description": "Total points earned" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Account creation time" }
+      },
+      "required": ["uid", "email"]
+    },
+    "Completion": {
+      "title": "Daily Completion",
+      "description": "Records when a user completes a daily problem.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "User UID" },
+        "date": { "type": "string", "description": "ISO date string (YYYY-MM-DD)" },
+        "grade": { "type": "string", "description": "Grade level" },
+        "hintUsed": { "type": "boolean", "description": "Whether a hint was used" },
+        "pointsEarned": { "type": "number", "description": "Points earned for this completion" },
+        "timestamp": { "type": "string", "format": "date-time", "description": "Completion time" }
+      },
+      "required": ["uid", "date", "grade", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/users/{uid}": {
+      "schema": "User",
+      "description": "User profiles"
+    },
+    "/completions/{completionId}": {
+      "schema": "Completion",
+      "description": "Daily problem completion records"
+    }
+  }
+}

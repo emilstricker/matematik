@@ -1,0 +1,5 @@
+{
+  "name": "Dagens Matematikopgave",
+  "description": "En hjemmeside der genererer en daglig matematikopgave baseret på klassetrin og dato.",
+  "requestFramePermissions": []
+}
