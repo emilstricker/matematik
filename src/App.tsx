@@ -636,14 +636,21 @@ function AppContent() {
       {/* Header */}
       <header className="bg-white border-b border-slate-200 sticky top-0 z-10">
         <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
+          <button 
+            onClick={() => {
+              setGrade(null);
+              setShowHint(false);
+              setShowExplanation(false);
+            }}
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity text-left"
+          >
             <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-indigo-200">
               <Calculator size={24} />
             </div>
             <h1 className="text-xl font-bold tracking-tight text-slate-800 hidden sm:block">
               Dagens Matematik
             </h1>
-          </div>
+          </button>
           
           <div className="flex items-center gap-4">
             {user && (
